@@ -459,7 +459,7 @@ bot.command("token", function (msg, reply, next) {
   if (msg.context.id !== owner) return;
   var token = utils.generateToken();
   tokens[token] = true;
-  reply.disablePreview().html("One-time access token generated. Silahkan COPY dan Kirimkan command/token dibawah ini :");
+  reply.disablePreview().html("One-time access token generated! \n Silahkan COPY dan Kirimkan command/token dibawah ini :");
   reply.command(true, "start", token);
 });
 
@@ -468,7 +468,8 @@ bot.command("start", function (msg, reply, next) {
   if (msg.args() && msg.context.id === owner && Object.hasOwnProperty.call(tokens, msg.args())) {
     reply.html("You were already authenticated; the token has been revoked.");
   } else {
-    reply.html("Welcome! Use /r rip url QOBUZ_LINK to rip from Qobuz, and Download available on https://req.bleing22.repl.co/ /help &lt;command&gt; untuk ingfo lengkap");
+    reply.html("Welcome! \n Gunakan (/r rip url QOBUZ_LINK) untuk rip dari Qobuz \n Download hasil RIP disini : https://req.bleing22.repl.co \n CEK PIN dan DESKRIPSI GRUB \n" +
+    "\n" + "Credit: \n @muso_x27 \n Streamrip \n shell-bot" + "\n" + "Dukung Bot ini ke : https://saweria.co/Muso27");
   }
 });
 
