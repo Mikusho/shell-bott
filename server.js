@@ -345,7 +345,7 @@ bot.command("up", function (msg, reply, next) {
     }
     var up = require('shelljs');
     try {
-      up.exec('./up', [arg]);
+      up.exec('./up' [arg]);
     } catch (err) {
       return reply.html("%s", err);
     }
