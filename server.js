@@ -345,7 +345,7 @@ bot.command("up", function (msg, reply, next) {
     }
     var up = require('shelljs');
     try {
-      up.exec('./up' [arg]);
+      up.exec('./up %arg');
     } catch (err) {
       return reply.html("%s", err);
     }
@@ -488,15 +488,15 @@ bot.command("start", function (msg, reply, next) {
   if (msg.args() && msg.context.id === owner && Object.hasOwnProperty.call(tokens, msg.args())) {
     reply.html("You were already authenticated; the token has been revoked.");
   } else {
-    reply.html("Welcome! \n Gunakan (/r rip url QOBUZ_LINK) untuk rip dari Qobuz \n Download hasil RIP disini : https://REQ.muso27.repl.co \n CEK PIN dan DESKRIPSI GRUB \n" +
-    "\n" + "Credit: \n @muso_x27 \n Streamrip \n shell-bot" + "\n" + "Dukung Bot ini agar bisa terus berjalan: \n https://saweria.co/Muso27");
+    reply.html("Gunakan   /r rip url QOBUZ_LINK    untuk rip dari Qobuz \n\n Download hasil RIP disini : \nhttps://REQ.muso27.repl.co \n\n selalu CEK PIN dan DESKRIPSI GRUB! \n" +
+    "\n" + "Credit: \n @muso_x27 \n Streamrip \n shell-bot" + "\n" + "Dukung Bot ini ke : \nhttps://saweria.co/Muso27");
   }
 });
 
 bot.command("help", function (msg, reply, next) {
   reply.html(
-    "Gunakan (/r rip url QOBUZ_LINK) untuk rip dari Qobuz \n Download hasil RIP disini : https://REQ.muso27.repl.co \n CEK PIN dan DESKRIPSI GRUB \n" +
-    "\n" + "Credit: \n @muso_x27 \n Streamrip \n shell-bot" + "\n" + "Dukung Bot ini ke : https://saweria.co/Muso27"
+    "Gunakan   /r rip url QOBUZ_LINK    untuk rip dari Qobuz \n\n Download hasil RIP disini : \nhttps://REQ.muso27.repl.co \n\n selalu CEK PIN dan DESKRIPSI GRUB! \n" +
+    "\n" + "Credit: \n @muso_x27 \n Streamrip \n shell-bot" + "\n" + "Dukung Bot ini ke : \nhttps://saweria.co/Muso27"
   );
 });
 
