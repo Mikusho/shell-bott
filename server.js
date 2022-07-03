@@ -344,7 +344,8 @@ bot.command("up", function (msg, reply, next) {
       return reply.reply(command.initialMessage.id || msg).html("Can't change directory while a command is running.");
     }
     var shell = require('shelljs');
-    shell.sh('up');
+    try {
+      shell.sh('up');
     } catch (err) {
       return reply.html("%s", err);
     }
