@@ -336,26 +336,6 @@ bot.command("shell", function (msg, reply, next) {
   }
 });
 
-bot.command("up", function (msg, reply, next) {
-  var arg = msg.args(1)[0];
-  if (arg) {
-    if (msg.context.command) {
-      var command = msg.context.command;
-      return reply.reply(command.initialMessage.id || msg).html("Can't change directory while a command is running.");
-    }
-    var shell = require('shelljs');
-    try {
-      shell.sh('up');
-    } catch (err) {
-      return reply.html("%s", err);
-    }
-  }
-
-  reply.html("Nowww at: %s", msg.context.cwd).then().then(function (m) {
-    msg.context.lastDirMessageId = m.id;
-  });
-});
-
 // Settings: Working dir
 bot.command("cd", function (msg, reply, next) {
   var arg = msg.args(1)[0];
