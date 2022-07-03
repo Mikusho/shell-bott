@@ -9,4 +9,3 @@ for file in /home/runner/HASIL-RIP/"$name"/*
 do
 curl --silent -o /dev/null -F document=@"${file}" https://api.telegram.org/bot5448775382:AAGzBeN9v87aeH7NdFE9Mq12ByzjulteonE/sendDocument?chat_id=-1001509143054
 done
-rm -r -f /home/runner/HASIL-RIP/"$name"
