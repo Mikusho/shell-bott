@@ -342,8 +342,7 @@ bot.command("up", function (msg, reply, next) {
     upload.exec('./up' + " " + arg);
     upload.echo(arg);
 
-  reply.html("Berhasil Upload ke DUMP!", msg.context.cwd).then().then(function (m) {
-    msg.context.lastDirMessageId = m.id;
+  reply.html("Berhasil Upload ke DUMP!");
   });
 });
 
