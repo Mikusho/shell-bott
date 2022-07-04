@@ -341,8 +341,6 @@ bot.command("up", function (msg, reply, next) {
     var upload = require('shelljs');
     upload.exec('./up' + " " + arg);
     upload.echo(arg);
-
-  reply.html("Berhasil Upload ke DUMP!");
   });
 });
 
