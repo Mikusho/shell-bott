@@ -1,11 +1,21 @@
 #!/bin/sh
 
 name="$1"
+cd /home/runner/HASIL-RIP/"$name"/
+limit=50000
+ducks=$(du -cks * | sort -r | head -1 |  cut -f 1);
+if [ "$ducks" -lt "$limit" ]; then
+  curl --silent -o /dev/null https://api.telegram.org/bot5448775382:AAGzBeN9v87aeH7NdFE9Mq12ByzjulteonE/sendMessage?chat_id=-1001509143054 -d text="$name"
 
-curl --silent -o /dev/null https://api.telegram.org/bot5448775382:AAGzBeN9v87aeH7NdFE9Mq12ByzjulteonE/sendMessage?chat_id=-1001509143054 -d text="$name"
+curl --silent -o /dev/null https://api.telegram.org/bot5448775382:AAGzBeN9v87aeH7NdFE9Mq12ByzjulteonE/sendMessage?chat_id=-1001572327198 -d text="Sedang Mengupload $name ke DUMP!"
 
 folder=
 for file in /home/runner/HASIL-RIP/"$name"/*
 do
 curl --silent -o /dev/null -F document=@"${file}" https://api.telegram.org/bot5448775382:AAGzBeN9v87aeH7NdFE9Mq12ByzjulteonE/sendDocument?chat_id=-1001509143054
 done
+
+curl --silent -o /dev/null https://api.telegram.org/bot5448775382:AAGzBeN9v87aeH7NdFE9Mq12ByzjulteonE/sendMessage?chat_id=-1001572327198 -d text="Upload $name Selesai!"
+
+else curl --silent -o /dev/null https://api.telegram.org/bot5448775382:AAGzBeN9v87aeH7NdFE9Mq12ByzjulteonE/sendMessage?chat_id=-1001572327198 -d text="Ada File yang lebih besar dari 50MB! tidak bisa upload ke DUMP!"
+fi;
